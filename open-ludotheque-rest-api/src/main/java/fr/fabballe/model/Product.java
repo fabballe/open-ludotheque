@@ -1,5 +1,6 @@
 package fr.fabballe.model;
 
+import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -12,14 +13,17 @@ import java.util.Set;
 @NodeEntity
 public abstract class Product {
 
-    private String name;
+    @GraphId
+    private Long id;
 
+    private String name;
 
     public Product() {
         // Empty constructor required as of Neo4j API 2.0.5
     }
 
     public Product(String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -38,6 +42,15 @@ public abstract class Product {
 //    public void setOwner(Set<User> owner) {
 //        this.owner = owner;
 //    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

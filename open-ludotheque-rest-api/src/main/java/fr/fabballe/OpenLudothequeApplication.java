@@ -27,22 +27,22 @@ public class OpenLudothequeApplication {
         SpringApplication.run(OpenLudothequeApplication.class, args);
     }
 
-//    @Bean
-//    CommandLineRunner demo(UserRepository userRepository, ComicRepository comicRepository) {
-//        return args -> {
-//
-//
-//
-//            comicRepository.deleteAll();
-//            Comic naruto = new Comic("naruto");
-//            Comic onepiece = new Comic("onepiece");
-//            Comic mutafukaz = new Comic("mutafukaz");
-//            comicRepository.save(naruto);
-//            comicRepository.save(onepiece);
-//            comicRepository.save(mutafukaz);
-//
-//
-//
+    @Bean
+    CommandLineRunner demo(UserRepository userRepository, ComicRepository comicRepository) {
+        return args -> {
+
+            comicRepository.deleteAll();
+            Comic naruto = new Comic("naruto","author1");
+            Comic onepiece = new Comic("onepiece", "author2");
+            Comic mutafukaz = new Comic("mutafukaz", "author3");
+            Comic fairytail = new Comic("fairytail", "author4");
+            comicRepository.save(naruto);
+            comicRepository.save(onepiece);
+            comicRepository.save(mutafukaz);
+            comicRepository.save(fairytail);
+
+
+
 //            userRepository.deleteAll();
 //
 //            User fab = new User("Fabien");
@@ -62,10 +62,10 @@ public class OpenLudothequeApplication {
 //
 //            userRepository.save(fab);
 //            userRepository.save(steph);
-//
-////            log.info("Lookup each person by name...");
-////            team.stream().forEach(person -> log.info(
-////                    "\t" + userRepository.findByName(person.getName()).toString()));
-//        };
-//    }
+
+//            log.info("Lookup each person by name...");
+//            team.stream().forEach(person -> log.info(
+//                    "\t" + userRepository.findByName(person.getName()).toString()));
+        };
+    }
 }
