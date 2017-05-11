@@ -1,0 +1,9 @@
+{
+  "generator-react-webpack": {
+    "appName": "open-ludotheque-front",
+    "style": "sass",
+    "cssmodules": true,
+    "postcss": true,
+    "generatedWithVersion": 4
+  }
+}
