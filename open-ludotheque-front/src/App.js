@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Collection from './model/Collection';
+import MyComic from './components/container/MyComic.js';
+//import store from './store/store'
+//import {addComic} from './actions/comic'
 
 class App extends Component {
   render() {
@@ -12,11 +14,27 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
-          <Collection />
+          <MyComic />
         </div>
       </div>
     );
   }
 }
+
+
+//// Log the initial state
+//console.log(store.getState());
+//
+//// Every time the state changes, log it
+//// Note that subscribe() returns a function for unregistering the listener
+//let unsubscribe = store.subscribe(() =>
+//        console.log(store.getState())
+//);
+//
+//store.dispatch(addComic('De cape et de croc'));
+//store.dispatch(addComic('Test'));
+//
+//// Stop listening to state updates
+//unsubscribe();
 
 export default App;

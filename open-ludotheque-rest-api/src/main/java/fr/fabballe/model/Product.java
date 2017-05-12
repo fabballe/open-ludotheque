@@ -23,7 +23,6 @@ public abstract class Product {
     }
 
     public Product(String name) {
-        this.id = id;
         this.name = name;
     }
 
@@ -42,15 +41,6 @@ public abstract class Product {
 //    public void setOwner(Set<User> owner) {
 //        this.owner = owner;
 //    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

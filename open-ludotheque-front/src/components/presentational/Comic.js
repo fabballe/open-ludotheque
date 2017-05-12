@@ -6,7 +6,7 @@ class Comic extends Component {
   render() {
     return (
       <div className="Comic">
-        Comic name= {this.props.name}
+        <span>Comic name</span>{this.props.name}
       </div>
     );
   }
