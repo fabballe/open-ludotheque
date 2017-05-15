@@ -23,8 +23,8 @@ Labels:
 Fabien est ami avec Matthieu
 Matthieu est ami avec Fabien
 
-Fabien collectionne la collection "walking dead"
-Fabien collectionne la collection "de capes et crocs"
+Fabien aime la collection "walking dead"
+Fabien aime la collection "de capes et crocs"
 
 Fabien a acheté le livre "walking dead tome 1"
 Fabien a acheté le livre "walking dead tome 2"
@@ -38,4 +38,16 @@ Matthieu a acheté le livre "De capes et de crocs tome 13"
 Fabien a lu le livre "walking dead tome 1"
 Fabien a lu le livre "walking dead tome 2
 
+le livre "walking dead tome 1" fait parti de la collection "walking dead"
+le livre "walking dead tome 2" fait parti de la collection "walking dead"
+
+le libre "De capes et de crocs tome 1" fait parti de la collection "De capes et de crocs"
+le libre "De capes et de crocs tome 2" fait parti de la collection "De capes et de crocs"
+
 https://neo4j.com/developer/guide-data-modeling/
+
+https://neo4j.com/developer/guide-importing-data-and-etl/
+
+https://neo4j.com/developer/example-data/
+https://neo4j.com/developer/example-project/
+https://neo4j.com/developer/movie-database/
