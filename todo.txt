@@ -51,3 +51,9 @@ https://neo4j.com/developer/guide-importing-data-and-etl/
 https://neo4j.com/developer/example-data/
 https://neo4j.com/developer/example-project/
 https://neo4j.com/developer/movie-database/
+
+http://fr.ubergizmo.com/2016/05/25/comixology-offre-illimitee.html
+
+https://comicvine.gamespot.com/api/
+https://www.programmableweb.com/api/comic-vine
+https://comicvine.gamespot.com/api/documentation#toc-0-42
