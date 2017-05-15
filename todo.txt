@@ -1,0 +1,41 @@
+Fabien et Matthieu deux personnes sont amis.
+
+Fabien collectionne la collection "Walking dead", "De capes et de crocs"
+
+Fabien a acheté les livres Walking dead tome 1, tome 2, tome 3, etc, tome 26
+
+Matthieu et Fabien ont acheté les livres "De capes et de crocs" tome 1, tome 2, etc tome 13
+
+Node:
+	Fabien
+	Matthieu
+	Walking Dead
+	De cape et de crocs
+	Walking dead tome 1
+	Walking dead tome 2
+	Walking dead tome 3
+
+Labels:
+	Personne
+	Collection
+	Livre
+
+Fabien est ami avec Matthieu
+Matthieu est ami avec Fabien
+
+Fabien collectionne la collection "walking dead"
+Fabien collectionne la collection "de capes et crocs"
+
+Fabien a acheté le livre "walking dead tome 1"
+Fabien a acheté le livre "walking dead tome 2"
+Fabien a acheté le livre "walking dead tome ..."
+Fabien a acheté le livre "walking dead tome 26"
+
+Matthieu a acheté le livre "De capes et de crocs tome 1"
+Matthieu a acheté le livre "De capes et de crocs tome 2"
+Matthieu a acheté le livre "De capes et de crocs tome 13"
+
+Fabien a lu le livre "walking dead tome 1"
+Fabien a lu le livre "walking dead tome 2
+
+https://neo4j.com/developer/guide-data-modeling/
