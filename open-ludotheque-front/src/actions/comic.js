@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
 
 export const ADD_COMIC = 'ADD_COMIC';
 export const LOAD_COMIC = 'LOAD_COMIC';
@@ -14,7 +14,7 @@ export function loadComic(products) {
 
 export function receiveComic(json) {
     return { type: RECEIVE_COMIC,
-        comics: json._embedded.comics
+        products: json._embedded.comics
     }
 }
 

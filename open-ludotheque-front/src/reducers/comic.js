@@ -6,13 +6,15 @@
 //    ]
 //}
 
-import {ADD_COMIC, LOAD_COMIC, RECEIVE_COMIC} from '../actions/comic'
+import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic'
+import { combineReducers } from 'redux'
+
 
 const initialState = {
     products: []
 };
 
-export default function openludothequeApp(state = initialState, action){
+function comics(state = initialState, action){
     switch (action.type) {
         case ADD_COMIC:
             return Object.assign({}, state, {
@@ -26,17 +28,16 @@ export default function openludothequeApp(state = initialState, action){
             });
         case RECEIVE_COMIC:
             return Object.assign({}, state, {
-                products: action.comics
+                products: action.products
             });
-            //fetch("http://localhost:8080/comics")
-            //    .then(response => response.json())
-            //    .then(json => {
-            //        return Object.assign({}, state, {
-            //            products: json._embedded.comics
-            //        });
-            //    });
         default:
             return state
     }
 
 }
+
+const rootReducer = combineReducers({
+    comics
+});
+
+export default rootReducer;

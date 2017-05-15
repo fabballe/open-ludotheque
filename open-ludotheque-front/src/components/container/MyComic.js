@@ -4,21 +4,9 @@
 import { connect } from 'react-redux'
 import Collection from '../presentational/Collection.js'
 
-
-const getMyComic = () => {
-    fetch("http://localhost:8080/comics")
-        .then(response => response.json())
-        .then(json => {
-            if(json !== undefined && json._embedded !== undefined){
-                return  json._embedded.comics;
-            }
-            return [];
-        });
-};
-
 const mapStateToProps = (state) => {
     return {
-        products : getMyComic()
+        products : state.comics.products
     }
 };
 
