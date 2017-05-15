@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore , applyMiddleware} from 'redux'
-import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/comic'
 import { fetchComic } from './actions/comic';
-import App from './App';
+import Root from './routes/Root'
 import './index.css';
 
 let store = createStore(
@@ -15,13 +14,9 @@ let store = createStore(
     )
 );
 
-store.dispatch(fetchComic()).then(() =>
-    console.log(store.getState())
-);
+store.dispatch(fetchComic());
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <Root store={store} />,
     document.getElementById('root')
 );
