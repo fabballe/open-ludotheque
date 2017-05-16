@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-//import MyComic from './components/container/MyComic.js';
-//import store from './store/store'
-//import {addComic} from './actions/comic'
+//import logo from './../../../logo.svg';
+import './Accueil.css';
 
-class App extends Component {
+
+class Accueil extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
+      <div>
         <div className="App-intro">
             Bienvenue dans OpenLudoteque.
         </div>
@@ -37,4 +31,4 @@ class App extends Component {
 //// Stop listening to state updates
 //unsubscribe();
 
-export default App;
+export default Accueil;

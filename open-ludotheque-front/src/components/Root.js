@@ -3,27 +3,41 @@
  */
 
 import React, { Component } from 'react';
+
 import { Provider } from 'react-redux';
-//import { Route, BrowserRouter, Switch} from 'react-router-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+
+/* React-routeur-redux */
+import { Route } from 'react-router'
+import { ConnectedRouter } from 'react-router-redux'
+
+/* presentational pure zoning component */
+import Header from './presentational/zoning/Header.js'
+import Accueil from './presentational/zoning/Accueil.js'
+
+/* Forms component */
+import LoginForm from './forms/LoginForm.js'
+//import Navigation from './presentational/zoning/Navigation.js'
 
 import PropTypes from 'prop-types';
-import App from '../App';
 import MyComic from './container/MyComic.js';
-import Navigation from './presentational/Navigation.js'
+
 
 class Root extends Component {
 
     render() {
         return (
             <Provider store={this.props.store}>
-                <div>
-                    <Router history={this.props.history}>
-                        <Route path="/" component={App}>
-                            <Route path="myComic" component={MyComic}/>
-                        </Route>
-                    </Router>
-                </div>
+                <ConnectedRouter history={this.props.history}>
+                    <div>
+                        <Header />
+
+                        <div id="main">
+                            <Route exact path="/" component={Accueil} />
+                            <Route path="/login" component={LoginForm} />
+                            <Route path="/myComic" component={MyComic}/>
+                        </div>
+                    </div>
+                </ConnectedRouter>
             </Provider>
         );
     }
@@ -31,7 +45,7 @@ class Root extends Component {
 
 Root.propTypes = {
     store: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
 };
 
 export default Root;

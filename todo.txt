@@ -57,3 +57,8 @@ http://fr.ubergizmo.com/2016/05/25/comixology-offre-illimitee.html
 https://comicvine.gamespot.com/api/
 https://www.programmableweb.com/api/comic-vine
 https://comicvine.gamespot.com/api/documentation#toc-0-42
+
+
+Bon tuto pour react-router-redux : https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
+
+https://bootswatch.com/slate/

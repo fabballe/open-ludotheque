@@ -5,17 +5,13 @@ import { createStore , applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/comic'
 
-import { fetchComic } from './actions/comic';
-import Root from './components/Root'
-import App from './App';
-import MyComic from './components/container/MyComic.js';
-import { Provider } from 'react-redux';
 
 // React Routeur v4 + React Routeur Redux v5
 import createHistory from 'history/createBrowserHistory'
-import { Route } from 'react-router'
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { routerMiddleware } from 'react-router-redux'
 
+
+import Root from './components/Root'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -36,23 +32,9 @@ const store = createStore(
 );
 
 
-
-
-//console.log(browserHistory);
-////const history = syncHistoryWithStore(browserHistory, store);
-//console.log("ici");
-//console.log(history);
-
-//store.dispatch(fetchComic());
+//store.dispatch(push('/'));
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <div>
-                <Route exact path="/" component={App} />
-                <Route path="/myComic" component={MyComic}/>
-            </div>
-        </ConnectedRouter>
-    </Provider>,
+    <Root store={store} history={history} />,
     document.getElementById('root')
 );
