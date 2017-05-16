@@ -8,6 +8,7 @@ class Collection extends Component {
     render() {
         return (
             <ul className="Collection">
+                test =
                 {this.props.products.map(function (product) {
                     return <li key={product.name}><Comic name={product.name}/></li>
                 })}

@@ -8,7 +8,7 @@
 
 import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic'
 import { combineReducers } from 'redux'
-
+import { routerReducer } from 'react-router-redux'
 
 const initialState = {
     products: []
@@ -37,7 +37,8 @@ function comics(state = initialState, action){
 }
 
 const rootReducer = combineReducers({
-    comics
+    comics,
+    routing: routerReducer
 });
 
 export default rootReducer;

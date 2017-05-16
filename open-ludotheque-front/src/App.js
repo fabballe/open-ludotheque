@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MyComic from './components/container/MyComic.js';
+//import MyComic from './components/container/MyComic.js';
 //import store from './store/store'
 //import {addComic} from './actions/comic'
 
@@ -14,7 +14,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
-          <MyComic />
+            Bienvenue dans OpenLudoteque.
         </div>
       </div>
     );
