@@ -1,17 +1,16 @@
-//{
-//    products: [
-//        //{"id": "1", name: "walking dead"},
-//        //{"id": "2", name: "Mutafukaz"},
-//        //{"id": "3", name: "One Piece"}
-//    ]
-//}
-
-import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic'
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
+// Redux form
+import {reducer as formReducer} from 'redux-form'
+
+// specific action
+import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic.js'
+import {LOG_USER} from '../actions/login.js'
+
 const initialState = {
-    products: []
+    products: [],
+    user : ""
 };
 
 function comics(state = initialState, action){
@@ -36,9 +35,23 @@ function comics(state = initialState, action){
 
 }
 
+function login(state = initialState, action){
+    switch (action.type) {
+        case LOG_USER:
+            console.log("reducers login action");
+            return Object.assign({}, state, {
+               user: action.email
+            });
+        default:
+            return state;
+    }
+}
+
 const rootReducer = combineReducers({
     comics,
-    routing: routerReducer
+    login,
+    routing: routerReducer,
+    form: formReducer
 });
 
 export default rootReducer;

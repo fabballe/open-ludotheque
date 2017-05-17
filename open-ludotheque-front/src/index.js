@@ -3,17 +3,16 @@ import ReactDOM from 'react-dom';
 import { createStore , applyMiddleware} from 'redux'
 
 import thunkMiddleware from 'redux-thunk'
-import rootReducer from './reducers/comic'
+import rootReducer from './reducers/root.js'
 
 
 // React Routeur v4 + React Routeur Redux v5
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 
-
 import Root from './components/Root'
 
-//import 'bootstrap/dist/css/bootstrap.css'
+// CSS
 import './vendor/css/bootstrap.min.css';
 import './index.css';
 
