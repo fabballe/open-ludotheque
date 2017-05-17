@@ -10,10 +10,11 @@ import {LOG_USER} from '../actions/login.js'
 
 const initialState = {
     products: [],
-    user : ""
+    user: "",
+    isAuthenticated: false
 };
 
-function comics(state = initialState, action){
+function comics(state = initialState, action) {
     switch (action.type) {
         case ADD_COMIC:
             return Object.assign({}, state, {
@@ -35,12 +36,12 @@ function comics(state = initialState, action){
 
 }
 
-function login(state = initialState, action){
+function login(state = initialState, action) {
     switch (action.type) {
         case LOG_USER:
-            console.log("reducers login action");
             return Object.assign({}, state, {
-               user: action.email
+                user: action.email,
+                isAuthenticated: true
             });
         default:
             return state;
