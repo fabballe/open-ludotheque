@@ -11,11 +11,19 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="Header">
-                <LinkContainer to="/login">
-                    <Link to="/login">Se connecter</Link>
-                </LinkContainer>
-            </header>
+            <div className="navbar navbar-default navbar-fixed-top">
+                <div className="container">
+                    <div className="navbar-collapse collapse">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li>
+                                <LinkContainer to="/login">
+                                    <Link to="/login">Se connecter</Link>
+                                </LinkContainer>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

@@ -8,7 +8,7 @@ class Accueil extends Component {
     return (
       <div>
         <div className="App-intro">
-            Bienvenue dans OpenLudoteque.
+            <h1>Bienvenue dans OpenLudoteque.</h1>
         </div>
       </div>
     );

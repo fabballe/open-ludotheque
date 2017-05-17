@@ -13,8 +13,8 @@ import { routerMiddleware } from 'react-router-redux'
 
 import Root from './components/Root'
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css';
+//import 'bootstrap/dist/css/bootstrap.css'
+import './vendor/css/bootstrap.min.css';
 import './index.css';
 
 // Create a history of your choosing (we're using a browser history in this case)

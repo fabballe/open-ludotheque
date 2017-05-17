@@ -31,7 +31,7 @@ class Root extends Component {
                     <div>
                         <Header />
 
-                        <div id="main">
+                        <div className="container">
                             <Route exact path="/" component={Accueil} />
                             <Route path="/login" component={LoginForm} />
                             <Route path="/myComic" component={MyComic}/>

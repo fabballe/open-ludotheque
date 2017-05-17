@@ -1,18 +1,18 @@
-.Header {
-    background-color: black;
-    color: white;
-    margin-bottom: 10px;
-    min-height: 50px;
-}
+/*.Header {*/
+    /*background-color: black;*/
+    /*color: white;*/
+    /*margin-bottom: 10px;*/
+    /*min-height: 50px;*/
+/*}*/
 
-.Header a, .Header a:hover, .Header a:visited {
-    background-color: rgb(229, 9, 20);
-    text-decoration: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 3px;
-}
+/*.Header a, .Header a:hover, .Header a:visited {*/
+    /*background-color: rgb(229, 9, 20);*/
+    /*text-decoration: none;*/
+    /*color: white;*/
+    /*padding: 5px 10px;*/
+    /*border-radius: 3px;*/
+/*}*/
 
-.Header a:hover {
-    background: #f40612;
-}
+/*.Header a:hover {*/
+    /*background: #f40612;*/
+/*}*/
