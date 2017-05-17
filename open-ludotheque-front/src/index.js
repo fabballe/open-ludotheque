@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore , applyMiddleware} from 'redux'
+import { createStore , applyMiddleware, compose} from 'redux'
 
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/root.js'
@@ -22,12 +22,14 @@ const history = createHistory();
 // Build the middleware for intercepting and dispatching navigation actions
 const middlewareRoute = routerMiddleware(history);
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
     rootReducer,
-    applyMiddleware(
+    composeEnhancers(applyMiddleware(
         thunkMiddleware,
         middlewareRoute
-    )
+    ))
 );
 
 

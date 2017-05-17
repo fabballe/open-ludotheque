@@ -11,7 +11,7 @@ import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
 /* presentational pure zoning component */
-import Header from './presentational/zoning/Header.js'
+import MyHeader from './container/MyHeader.js'
 import Accueil from './presentational/zoning/Accueil.js'
 
 /* Forms component */
@@ -29,7 +29,7 @@ class Root extends Component {
             <Provider store={this.props.store}>
                 <ConnectedRouter history={this.props.history}>
                     <div>
-                        <Header />
+                        <MyHeader />
 
                         <div className="container">
                             <Route exact path="/" component={Accueil} />

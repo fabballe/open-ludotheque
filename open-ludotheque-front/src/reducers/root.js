@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+
+// React Redux Route
 import { routerReducer } from 'react-router-redux'
 
 // Redux form
@@ -6,7 +8,7 @@ import {reducer as formReducer} from 'redux-form'
 
 // specific action
 import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic.js'
-import {LOG_USER} from '../actions/login.js'
+import {USER_LOGGED} from '../actions/login.js'
 
 const initialState = {
     products: [],
@@ -38,7 +40,7 @@ function comics(state = initialState, action) {
 
 function login(state = initialState, action) {
     switch (action.type) {
-        case LOG_USER:
+        case USER_LOGGED:
             return Object.assign({}, state, {
                 user: action.email,
                 isAuthenticated: true

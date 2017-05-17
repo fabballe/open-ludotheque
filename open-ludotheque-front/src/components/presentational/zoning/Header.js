@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /* react-boostrap */
 import {LinkContainer} from 'react-router-bootstrap';
@@ -6,19 +7,27 @@ import {Link} from 'react-router-dom';
 
 import './Header.css'
 
+function DisplayLoginLink(props) {
+    const isAuthenticated = props.isAuthenticated;
+    console.log(isAuthenticated);
+    if(isAuthenticated) {
+        return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
+    } else {
+        return <LinkContainer to="/login"><Link to="/login">Se connecter</Link></LinkContainer>;
+    }
+}
 
 class Header extends Component {
 
     render() {
+        console.log(this.props.isAuthenticated);
         return (
             <div className="navbar navbar-default navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <LinkContainer to="/login">
-                                    <Link to="/login">Se connecter</Link>
-                                </LinkContainer>
+                                <DisplayLoginLink isAuthenticated={this.props.isAuthenticated} />
                             </li>
                         </ul>
                     </div>
@@ -27,5 +36,13 @@ class Header extends Component {
         );
     }
 }
+
+Header.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired
+};
+
+Header.defaultProps = {
+    isAuthenticated: false
+};
 
 export default Header;
