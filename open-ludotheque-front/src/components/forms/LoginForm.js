@@ -27,7 +27,7 @@ class LoginForm extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: (values) => {
-            dispatch(logUser(values.email, values.password));
+            dispatch(logUser(values.email));
         }
     }
 };

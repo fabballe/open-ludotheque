@@ -5,9 +5,8 @@ import { connect } from 'react-redux'
 import Header from '../presentational/zoning/Header.js'
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
-        isAuthenticated : state.login.isAuthenticated
+        isAuthenticated : state.user.isAuthenticated
     }
 };
 

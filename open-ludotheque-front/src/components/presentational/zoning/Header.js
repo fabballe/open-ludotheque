@@ -9,9 +9,9 @@ import './Header.css'
 
 function DisplayLoginLink(props) {
     const isAuthenticated = props.isAuthenticated;
-    console.log(isAuthenticated);
     if(isAuthenticated) {
         return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
+        //https://github.com/ReactTraining/react-router/issues/1553
     } else {
         return <LinkContainer to="/login"><Link to="/login">Se connecter</Link></LinkContainer>;
     }
@@ -20,7 +20,6 @@ function DisplayLoginLink(props) {
 class Header extends Component {
 
     render() {
-        console.log(this.props.isAuthenticated);
         return (
             <div className="navbar navbar-default navbar-fixed-top">
                 <div className="container">

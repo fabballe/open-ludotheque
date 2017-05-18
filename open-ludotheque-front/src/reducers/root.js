@@ -11,8 +11,11 @@ import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic.js'
 import {USER_LOGGED} from '../actions/login.js'
 
 const initialState = {
-    products: [],
-    user: "",
+    products: []
+};
+
+const userInitialState = {
+    login: "",
     isAuthenticated: false
 };
 
@@ -38,11 +41,11 @@ function comics(state = initialState, action) {
 
 }
 
-function login(state = initialState, action) {
+function loginReducer(state = userInitialState, action) {
     switch (action.type) {
         case USER_LOGGED:
             return Object.assign({}, state, {
-                user: action.email,
+                login: action.email,
                 isAuthenticated: true
             });
         default:
@@ -52,7 +55,7 @@ function login(state = initialState, action) {
 
 const rootReducer = combineReducers({
     comics,
-    login,
+    user: loginReducer,
     routing: routerReducer,
     form: formReducer
 });
