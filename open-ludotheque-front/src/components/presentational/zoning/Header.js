@@ -8,9 +8,9 @@ import {Link} from 'react-router-dom';
 import './Header.css'
 
 function DisplayLoginLink(props) {
-    const isAuthenticated = props.isAuthenticated;
-    if(isAuthenticated) {
-        return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
+    if(props.isAuthenticated) {
+        //return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
+        return <a href="#" onClick={props.onClick}>Se déconnecter</a>
         //https://github.com/ReactTraining/react-router/issues/1553
     } else {
         return <LinkContainer to="/login"><Link to="/login">Se connecter</Link></LinkContainer>;
@@ -26,7 +26,7 @@ class Header extends Component {
                     <div className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <DisplayLoginLink isAuthenticated={this.props.isAuthenticated} />
+                                <DisplayLoginLink isAuthenticated={this.props.isAuthenticated} onClick={this.props.onClick} />
                             </li>
                         </ul>
                     </div>
@@ -37,7 +37,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 Header.defaultProps = {

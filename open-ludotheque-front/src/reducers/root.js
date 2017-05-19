@@ -8,7 +8,7 @@ import {reducer as formReducer} from 'redux-form'
 
 // specific action
 import {ADD_COMIC, RECEIVE_COMIC} from '../actions/comic.js'
-import {USER_LOGGED} from '../actions/login.js'
+import {USER_LOGGED, USER_LOGGED_OUT} from '../actions/login.js'
 
 const initialState = {
     products: []
@@ -47,6 +47,11 @@ function loginReducer(state = userInitialState, action) {
             return Object.assign({}, state, {
                 login: action.email,
                 isAuthenticated: true
+            });
+        case USER_LOGGED_OUT:
+            return Object.assign({}, state, {
+                login: "",
+                isAuthenticated: false
             });
         default:
             return state;
