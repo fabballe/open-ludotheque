@@ -10,7 +10,7 @@ import './Header.css'
 function DisplayLoginLink(props) {
     if(props.isAuthenticated) {
         //return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
-        return <a href="#" onClick={props.onClick}>Se déconnecter</a>
+        return <a href="#" onClick={props.onClick}>Se déconnecter</a>;
         //https://github.com/ReactTraining/react-router/issues/1553
     } else {
         return <LinkContainer to="/login"><Link to="/login">Se connecter</Link></LinkContainer>;
