@@ -2,6 +2,7 @@ package fr.fabballe.openludoteque.controller;
 
 import fr.fabballe.openludoteque.model.Collection;
 import fr.fabballe.openludoteque.repository.CollectionRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -42,7 +43,7 @@ public class CollectionController {
     }
 
     @GetMapping(value = "/collections", produces = "application/hal+json")
-    public ResponseEntity<Resources<Resource<Collection>>> getCollections() {
+    public ResponseEntity<Resources<Resource<Collection>>> getCollections(Pageable pageable) {
         Iterable<Collection> collections = collectionRepository.findAll();
 
         List<Resource<Collection>> stream = StreamSupport.stream(collections.spliterator(), false)
