@@ -1,6 +1,7 @@
-package fr.fabballe.repository;
+package fr.fabballe.openludoteque.repository;
 
-import fr.fabballe.model.Comic;
+import fr.fabballe.openludoteque.model.Collection;
+import fr.fabballe.openludoteque.model.Comic;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
  */
 //@RepositoryRestResource(collectionResourceRel = "user", path = "users")
 @CrossOrigin(origins = "*")
-public interface ComicRepository extends PagingAndSortingRepository<Comic, Long> {
+public interface CollectionRepository extends PagingAndSortingRepository<Collection, Long> {
+
+    Collection findByName(String name);
 
 //    User findByName(@Param("name") String name);
 }

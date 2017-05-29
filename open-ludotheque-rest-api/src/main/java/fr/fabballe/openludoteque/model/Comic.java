@@ -1,4 +1,4 @@
-package fr.fabballe.model;
+package fr.fabballe.openludoteque.model;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 
