@@ -2,7 +2,6 @@ package fr.fabballe.openludoteque.controller;
 
 import fr.fabballe.openludoteque.model.Collection;
 import fr.fabballe.openludoteque.repository.CollectionRepository;
-import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -28,11 +27,8 @@ public class CollectionController {
 
     private CollectionRepository collectionRepository;
 
-    private EntityLinks entityLinks;
-
-    public CollectionController(CollectionRepository collectionRepository, EntityLinks entityLinks) {
+    public CollectionController(CollectionRepository collectionRepository) {
         this.collectionRepository = collectionRepository;
-        this.entityLinks = entityLinks;
     }
 
 
@@ -50,13 +46,17 @@ public class CollectionController {
         Iterable<Collection> collections = collectionRepository.findAll();
 
         List<Resource<Collection>> stream = StreamSupport.stream(collections.spliterator(), false)
-                .map(collection -> addHateoasLink(collection))
+                .map(collection -> transformCollectionToHateaosResource(collection))
                 .collect(Collectors.toList());
 
-        return new ResponseEntity<>(new Resources<>(stream), HttpStatus.OK);
+        Resources<Resource<Collection>> result = new Resources<>(stream);
+
+        //TODO: voir quels liens on rajoute pour la pagination
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    private Resource<Collection> addHateoasLink(Collection collection) {
+    private Resource<Collection> transformCollectionToHateaosResource(Collection collection) {
         Link selfLink = linkTo(methodOn(CollectionController.class).getCollection(collection.getName())).withSelfRel();
         collection.add(selfLink);
         return new Resource<>(collection);
@@ -66,7 +66,7 @@ public class CollectionController {
     public ResponseEntity<Resource<Collection>> getCollection(@PathVariable String name) {
 
         Collection collection = collectionRepository.findByName(name);
-        Resource<Collection> result = addHateoasLink(collection);
+        Resource<Collection> result = transformCollectionToHateaosResource(collection);
 
 
         return new ResponseEntity<>(result, HttpStatus.OK);
