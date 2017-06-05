@@ -67,7 +67,10 @@ https://github.com/zalmoxisus/redux-devtools-extension#usage
 
 //Liens à lire pour transformer les pojo en resources HATEAOS
 https://stackoverflow.com/questions/33571920/spring-data-rest-spring-hateoas-custom-controller-persistententityresourceas
-https://stackoverflow.com/questions/21346387/how-to-correctly-use-pagedresourcesassembler-from-spring-data (tres bien détaillé)
+  (tres bien détaillé)
 
 PagedResourcesAssembler
 PersistentEntityResourceAssembler
+
+-> https://www.mkyong.com/spring-security/spring-security-password-hashing-example/
+-> http://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
