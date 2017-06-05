@@ -1,4 +1,4 @@
-package fr.fabballe;
+package fr.fabballe.openludoteque;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
