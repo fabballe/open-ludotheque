@@ -74,3 +74,5 @@ PersistentEntityResourceAssembler
 
 -> https://www.mkyong.com/spring-security/spring-security-password-hashing-example/
 -> http://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
+-> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/config/SecurityConfiguration.java
+-> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/security/UserDetailsService.java

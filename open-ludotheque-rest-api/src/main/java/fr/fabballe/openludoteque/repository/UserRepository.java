@@ -10,5 +10,5 @@ import org.springframework.data.repository.query.Param;
 //@RepositoryRestResource(collectionResourceRel = "user", path = "users")
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
-    User findByName(@Param("name") String name);
+    User findByLogin(@Param("login") String login);
 }

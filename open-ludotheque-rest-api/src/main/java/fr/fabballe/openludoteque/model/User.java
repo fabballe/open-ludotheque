@@ -1,17 +1,19 @@
 package fr.fabballe.openludoteque.model;
 
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.hateoas.ResourceSupport;
 
 /**
  * Created by fabballe on 27/04/17.
  */
-//@NodeEntity
+@NodeEntity
 public class User extends ResourceSupport {
 
-//    @GraphId
-//    private Long id;
+    @GraphId
+    private Long id;
 
-    private String name;
+    private String login;
 
     private String password;
 
@@ -19,8 +21,9 @@ public class User extends ResourceSupport {
         // Empty constructor required as of Neo4j API 2.0.5
     }
 
-    public User(String name) {
-        this.name = name;
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 
     /**
@@ -47,13 +50,6 @@ public class User extends ResourceSupport {
 //        }
 //        interestedBy.add(product);
 //    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 //    public Set<Product> getOwn() {
 //        return own;
@@ -62,6 +58,13 @@ public class User extends ResourceSupport {
 //    public void setOwn(Set<Product> own) {
 //        this.own = own;
 //    }
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public String getPassword() {
         return password;
