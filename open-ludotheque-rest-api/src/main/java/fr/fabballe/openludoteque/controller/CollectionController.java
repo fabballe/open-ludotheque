@@ -24,6 +24,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
  */
 @RestController
 @Transactional
+@RequestMapping("/api/secure")
 public class CollectionController {
 
     private CollectionRepository collectionRepository;
@@ -33,7 +34,7 @@ public class CollectionController {
     }
 
 
-    @PostMapping(value = "/secure/collections", produces = "application/hal+json")
+    @PostMapping(value = "/collections", produces = "application/hal+json")
     public HttpEntity<Collection> addCollection(@RequestParam(value = "name", required = true) String name) {
 
         Collection collection = new Collection(name);
@@ -42,7 +43,7 @@ public class CollectionController {
         return new ResponseEntity<>(collection, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/secure/collections", produces = "application/hal+json")
+    @GetMapping(value = "/collections", produces = "application/hal+json")
     public ResponseEntity<Resources<Resource<Collection>>> getCollections(Pageable pageable) {
         Iterable<Collection> collections = collectionRepository.findAll();
 
@@ -63,7 +64,7 @@ public class CollectionController {
         return new Resource<>(collection);
     }
 
-    @GetMapping(value = "/secure/collections/{name}", produces = "application/hal+json")
+    @GetMapping(value = "/collections/{name}", produces = "application/hal+json")
     public ResponseEntity<Resource<Collection>> getCollection(@PathVariable String name) {
 
         Collection collection = collectionRepository.findByName(name);

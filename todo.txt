@@ -76,3 +76,8 @@ PersistentEntityResourceAssembler
 -> http://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
 -> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/config/SecurityConfiguration.java
 -> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/security/UserDetailsService.java
+
+curl -d username=fabien.abballe@trsb.net -d password=test -L http://localhost:8080/api/authentication
+
+https://github.com/szerhusenBC/jwt-spring-security-demo
+https://auth0.com/blog/securing-spring-boot-with-jwts/

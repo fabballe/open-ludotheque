@@ -2,16 +2,14 @@ package fr.fabballe.openludoteque.security;
 
 import fr.fabballe.openludoteque.model.User;
 import fr.fabballe.openludoteque.repository.UserRepository;
+import fr.fabballe.openludoteque.security.jwt.JwtUserFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -36,11 +34,9 @@ public class Neo4JUserDetailsService implements UserDetailsService {
 
         Optional<User> userFromDatabase = Optional.ofNullable(userRepository.findByLogin(lowerCaseLogin));
 
-        return userFromDatabase.map(user -> {
-            // TODO Voir pr les droits de l'utilisateur
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-            return new org.springframework.security.core.userdetails.User(lowerCaseLogin, user.getPassword(), grantedAuthorities);
-        }).orElseThrow(() -> new UsernameNotFoundException("User " + lowerCaseLogin + "was not found"));
+        return userFromDatabase
+                .map(user -> JwtUserFactory.create(user))
+                .orElseThrow(() -> new UsernameNotFoundException("User " + lowerCaseLogin + "was not found"));
 
     }
 }

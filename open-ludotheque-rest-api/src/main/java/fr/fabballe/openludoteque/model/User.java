@@ -4,6 +4,9 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.hateoas.ResourceSupport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by fabballe on 27/04/17.
  */
@@ -16,6 +19,9 @@ public class User extends ResourceSupport {
     private String login;
 
     private String password;
+
+    //TODO a changer
+    private List<String> authorities = new ArrayList<>();
 
     private User() {
         // Empty constructor required as of Neo4j API 2.0.5
@@ -65,6 +71,16 @@ public class User extends ResourceSupport {
     public void setLogin(String login) {
         this.login = login;
     }
+
+
+    public List<String> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(List<String> authorities) {
+        this.authorities = authorities;
+    }
+
 
     public String getPassword() {
         return password;
