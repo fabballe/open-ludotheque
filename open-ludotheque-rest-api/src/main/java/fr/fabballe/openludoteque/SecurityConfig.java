@@ -50,27 +50,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http //
-                .formLogin() //
-                .loginProcessingUrl("/api/authentication") //
-                .successHandler(ajaxAuthenticationSuccessHandler) //
-                .failureHandler(ajaxAuthenticationFailureHandler) //
-                .and()
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-                .and()
-                .authorizeRequests() //
-                .antMatchers(HttpMethod.GET, "/api/secure/**").authenticated()
-                .antMatchers(HttpMethod.POST, "/api/secure/**").authenticated()
-                .antMatchers(HttpMethod.PUT, "/api/secure/**").authenticated()
-                .antMatchers(HttpMethod.DELETE, "/api/secure/**").authenticated()
-                .anyRequest().permitAll()
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().csrf().disable();
+            .formLogin() //
+            .loginProcessingUrl("/api/authentication") //
+            .successHandler(ajaxAuthenticationSuccessHandler) //
+            .failureHandler(ajaxAuthenticationFailureHandler) //
+            .and()
+            .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+            .and()
+            .authorizeRequests() //
+            .antMatchers(HttpMethod.GET, "/api/secure/**").authenticated()
+            .antMatchers(HttpMethod.POST, "/api/secure/**").authenticated()
+            .antMatchers(HttpMethod.PUT, "/api/secure/**").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/api/secure/**").authenticated()
+            .anyRequest().permitAll()
+            .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().csrf().disable();
 
         // Custom JWT based security filter
         http
-                .addFilterBefore(new JWTLoginFilter("/api/authentication", authenticationManager(), jwtUtil), UsernamePasswordAuthenticationFilter.class)
-                        // And filter other requests to check the presence of JWT in header
-                .addFilterBefore(new JWTAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(new JWTLoginFilter("/api/authentication", authenticationManager(), jwtUtil), UsernamePasswordAuthenticationFilter.class)
+            // And filter other requests to check the presence of JWT in header
+            .addFilterBefore(new JWTAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
         // disable page caching
         http.headers().cacheControl();
