@@ -16,6 +16,7 @@ import Accueil from './presentational/zoning/Accueil.js'
 
 /* Forms component */
 import LoginForm from './forms/LoginForm.js'
+import RegisterForm from './forms/RegisterForm.js'
 //import Navigation from './presentational/zoning/Navigation.js'
 
 import PropTypes from 'prop-types';
@@ -34,6 +35,7 @@ class Root extends Component {
                         <div className="container">
                             <Route exact path="/" component={Accueil} />
                             <Route path="/login" component={LoginForm} />
+                            <Route path="/register" component={RegisterForm} />
                             <Route path="/myComic" component={MyComic}/>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
 import { connect } from 'react-redux'
 import Header from '../presentational/zoning/Header.js'
 
-import {logoutUser} from '../../actions/login.js'
+import {logoutUser} from '../../actions/User.js'
 
 const mapStateToProps = (state) => {
     return {

@@ -7,13 +7,22 @@ import {Link} from 'react-router-dom';
 
 import './Header.css'
 
-function DisplayLoginLink(props) {
+function DisplayLink(props) {
     if(props.isAuthenticated) {
         //return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
-        return <a href="#" onClick={props.onClick}>Se déconnecter</a>;
+        return <ul className="nav navbar-nav navbar-right"><li><a href="#" onClick={props.onClick}>Logout</a></li></ul>;
         //https://github.com/ReactTraining/react-router/issues/1553
     } else {
-        return <LinkContainer to="/login"><Link to="/login">Se connecter</Link></LinkContainer>;
+        return (
+            <ul className="nav navbar-nav navbar-right">
+                <li>
+                    <LinkContainer to="/register"><Link to="/register">Sign up</Link></LinkContainer>
+                </li>
+                <li>
+                    <LinkContainer to="/login"><Link to="/login">Sign in</Link></LinkContainer>
+                </li>
+            </ul>
+        );
     }
 }
 
@@ -24,11 +33,7 @@ class Header extends Component {
             <div className="navbar navbar-default navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-collapse collapse">
-                        <ul className="nav navbar-nav navbar-right">
-                            <li>
-                                <DisplayLoginLink isAuthenticated={this.props.isAuthenticated} onClick={this.props.onClick} />
-                            </li>
-                        </ul>
+                        <DisplayLink isAuthenticated={this.props.isAuthenticated} onClick={this.props.onClick} />
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux'
 
-//import fetch from 'isomorphic-fetch';
-//export const LOG_USER = 'LOGIN_USER';
+import {signUp} from '../service/UserService.js';
+
 export const USER_LOGGED = 'USER_LOGGED';
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
 
@@ -11,6 +11,17 @@ export function userLogged(email) {
 
 export function userLoggedOut() {
     return { type: USER_LOGGED_OUT}
+}
+
+export function userSignUp(email, password){
+    return function (dispatch){
+        return signUp(email,password)
+            .then(() => {
+                // une fois le compte créé nous loggons l'utilisateur
+                dispatch(logUser(email,password));
+                //TODO: gerer l'erreur
+            });
+    }
 }
 
 export function logUser(email, password){

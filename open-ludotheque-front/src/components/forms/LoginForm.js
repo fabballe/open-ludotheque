@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form';
-//import { push } from 'react-router-redux'
 
-import {logUser} from '../../actions/login.js'
+import {logUser} from '../../actions/User.js'
+import {required, emailRegexp} from './Validation.js';
+import {renderField} from './UtilForm.js';
 
 class LoginForm extends Component {
 
     render() {
         return (
             <form onSubmit={this.props.handleSubmit} className="bs-component">
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <Field name="email" component="input" type="text" className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <Field name="password" component="input" type="password" className="form-control"/>
-                </div>
+
+                <Field name="email" label="Email" type="text" component={renderField} className="form-control" validate={[required, emailRegexp]} />
+                <Field name="password" label="Password" type="password" component={renderField} className="form-control" validate={[required]} />
+
                 <button type="submit">Submit</button>
             </form>
         );

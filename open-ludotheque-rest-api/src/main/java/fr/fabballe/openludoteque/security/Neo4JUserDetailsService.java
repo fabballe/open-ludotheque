@@ -27,16 +27,16 @@ public class Neo4JUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        log.debug("Authenticating {}", login);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        log.debug("Authenticating {}", email);
 
-        String lowerCaseLogin = login.toLowerCase();
+        String lowerCaseEmail = email.toLowerCase();
 
-        Optional<User> userFromDatabase = Optional.ofNullable(userRepository.findByLogin(lowerCaseLogin));
+        Optional<User> userFromDatabase = Optional.ofNullable(userRepository.findByEmail(lowerCaseEmail));
 
         return userFromDatabase
                 .map(user -> JwtUserFactory.create(user))
-                .orElseThrow(() -> new UsernameNotFoundException("User " + lowerCaseLogin + "was not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User " + lowerCaseEmail + "was not found"));
 
     }
 }

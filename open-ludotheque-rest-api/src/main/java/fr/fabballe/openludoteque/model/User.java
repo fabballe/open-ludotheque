@@ -1,5 +1,6 @@
 package fr.fabballe.openludoteque.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.springframework.hateoas.ResourceSupport;
@@ -16,9 +17,14 @@ public class User extends ResourceSupport {
     @GraphId
     private Long id;
 
-    private String login;
+    private String email;
 
+//    @JsonIgnore
     private String password;
+
+    private String firstName;
+
+    private String lastName;
 
     //TODO a changer
     private List<String> authorities = new ArrayList<>();
@@ -27,9 +33,11 @@ public class User extends ResourceSupport {
         // Empty constructor required as of Neo4j API 2.0.5
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public User(String email, String password, String firstName, String lastName) {
+        this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     /**
@@ -43,35 +51,29 @@ public class User extends ResourceSupport {
 //    @Relationship(type = "INTERESTED_BY", direction = Relationship.UNDIRECTED)
 //    private Set<Product> interestedBy;
 //
-//    public void addProductOwn(Product product) {
-//        if (own == null) {
-//            own = new HashSet<>();
-//        }
-//        own.add(product);
-//    }
-//
-//    public void addProductInterested(Product product) {
-//        if (interestedBy == null) {
-//            interestedBy = new HashSet<>();
-//        }
-//        interestedBy.add(product);
-//    }
-
-//    public Set<Product> getOwn() {
-//        return own;
-//    }
-//
-//    public void setOwn(Set<Product> own) {
-//        this.own = own;
-//    }
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public List<String> getAuthorities() {
         return authorities;
