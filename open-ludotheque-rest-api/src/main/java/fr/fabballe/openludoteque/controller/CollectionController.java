@@ -24,6 +24,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
  */
 @RestController
 @Transactional
+@RequestMapping("/api/secure")
 public class CollectionController {
 
     private CollectionRepository collectionRepository;

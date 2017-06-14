@@ -1,0 +1,33 @@
+MATCH (ee:Person) WHERE ee.name = "Fabien"
+CREATE (cc1:Comic {name: "Naruto", type: "Manga"}),
+(cc2:Comic {name: "One Piece", type: "Manga"}),
+(cc3:Comic {name: "Mutafukaz", type: "Comics"}),
+(ee)-[:OWN]->(cc1),
+(ee)-[:OWN]->(cc2)
+
+MATCH (ee:Person)-[:OWN]-(comics)
+WHERE ee.name = "Fabien" RETURN ee, comics
+
+
+MATCH (cc1:Comic) WHERE cc1.name = "Naruto"
+CREATE (ee2:Person {name: "Stéphane"}),
+ (ee2)-[:INTEREST_BY]->(cc1)
+
+MATCH (cc1:Comic) WHERE cc1.name = "Mutafukaz"
+CREATE (ee2:Person {name: "Khalid"}),
+ (ee2)-[:INTEREST_BY]->(cc1)
+
+
+MATCH (cc1:Comic) WHERE cc1.name = "Mutafukaz"
+MATCH (ee:Person) WHERE ee.name = "Fabien"
+CREATE (ee)-[:OWN]->(cc1)
+
+Liste des personnes intéressé par un manga que qqun a:
+
+MATCH (ee:Person)-[:OWN]-()-[:INTEREST_BY]-(ee2:Person)
+RETURN DISTINCT ee2
+
+MATCH (ee:User)-[:OWN]-()-[:INTERESTED_BY]-(ee2:User)
+RETURN DISTINCT ee2
+
+MATCH (neo)-[:PARTNER]-(partner)= MATCH (neo)-[:PARTNER]->(partner) + MATCH (neo)<-[:PARTNER]-(partner)
