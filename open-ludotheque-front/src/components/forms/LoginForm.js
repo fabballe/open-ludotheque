@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form';
 
-import {logUser} from '../../actions/User.js'
+import {userSignIn} from '../../actions/User.js'
 import {required, emailRegexp} from './Validation.js';
 import {renderField} from './UtilForm.js';
 
@@ -24,7 +24,7 @@ class LoginForm extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: (values) => {
-            dispatch(logUser(values.email));
+            dispatch(userSignIn(values.email, values.password));
         }
     }
 };

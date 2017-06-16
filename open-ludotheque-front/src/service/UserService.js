@@ -4,9 +4,8 @@ import {BASE_URL} from './UtilService.js';
 
 /**
  * Créer un utilisateur dans le system
- * @param email l'email de l'utilisateur
- * @param password le mot de passe de l'utilisateur
- * @returns {*} la promesse
+ * @param user les données représentant l'utilisateur
+ * @returns {*} promise
  */
 export function signUp(user){
     return fetch(BASE_URL+"/api/user", {
@@ -19,6 +18,19 @@ export function signUp(user){
             password: user.password,
             firstName: user.firstName,
             lastName: user.lastName
+        })
+    });
+}
+
+export function signIn(login,password){
+    return fetch(BASE_URL+"/api/authentication", {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: login,
+            password: password
         })
     });
 }

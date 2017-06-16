@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux'
 
-import {signUp} from '../service/UserService.js';
+import {signUp, signIn} from '../service/UserService.js';
 
 export const USER_LOGGED = 'USER_LOGGED';
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
@@ -18,21 +18,28 @@ export function userSignUp(email, password){
         return signUp(email,password)
             .then(() => {
                 // une fois le compte créé nous loggons l'utilisateur
-                dispatch(logUser(email,password));
+                dispatch(userSignIn(email,password));
                 //TODO: gerer l'erreur
+            }).catch(e => {
+                console.log(e);
             });
     }
 }
 
-export function logUser(email, password){
+export function userSignIn(email, password){
     return function (dispatch) {
-        // TODO Appeler le backoffice pour faire l'authentification
 
-        // l'utilisateur est loggué
-        dispatch(userLogged(email));
+        return signIn(email, password)
+            .then(() => {
+                // l'utilisateur est loggué
+                dispatch(userLogged(email));
 
-        // nous redirigons vers l'accueil
-        dispatch(push('/'));
+                // nous redirigons vers l'accueil
+                dispatch(push('/'));
+            }).catch(e => {
+                console.log(e);
+            });
+
     }
 }
 

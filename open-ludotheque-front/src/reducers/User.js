@@ -2,20 +2,26 @@
 import {USER_LOGGED, USER_LOGGED_OUT} from '../actions/User.js'
 
 export const userInitialState = {
-    login: "",
-    isAuthenticated: false
+    email: "",
+    isAuthenticated: false,
+    firstName: "",
+    lastName: ""
 };
 
 export const userReducer = (state = userInitialState, action) => {
     switch (action.type) {
         case USER_LOGGED:
             return Object.assign({}, state, {
-                login: action.email,
+                email: action.email,
+                //firstName: action.firstName,
+                //lastName: action.lastName,
                 isAuthenticated: true
             });
         case USER_LOGGED_OUT:
             return Object.assign({}, state, {
-                login: "",
+                email: "",
+                firstName: "",
+                lastName: "",
                 isAuthenticated: false
             });
         default:

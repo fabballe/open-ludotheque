@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by fabballe on 29/05/17.
  */
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @Transactional
 @RequestMapping("/api")
