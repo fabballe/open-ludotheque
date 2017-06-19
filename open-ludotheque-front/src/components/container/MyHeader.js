@@ -8,7 +8,9 @@ import {logoutUser} from '../../actions/User.js'
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated : state.user.isAuthenticated
+        isAuthenticated : state.user.isAuthenticated,
+        firstName: state.user.firstName,
+        lastName: state.user.lastName
     }
 };
 

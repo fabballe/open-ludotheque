@@ -7,20 +7,15 @@ class Collection extends Component {
 
     render() {
         return (
-            <ul className="Collection">
-                test =
-                {this.props.products.map(function (product) {
-                    return <li key={product.name}><Comic name={product.name}/></li>
-                })}
-            </ul>
+            <div>TODO</div>
         );
     }
 }
 
-Collection.propTypes = {
-    products: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired
-    }).isRequired).isRequired
-};
+//Collection.propTypes = {
+//    products: PropTypes.arrayOf(PropTypes.shape({
+//        name: PropTypes.string.isRequired
+//    }).isRequired).isRequired
+//};
 
 export default Collection;

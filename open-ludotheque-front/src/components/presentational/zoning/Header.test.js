@@ -14,15 +14,15 @@ describe('<Header />', () => {
     });
 
     it('renders with disconnect link', () => {
-        const wrapper = mount(<Header onClick={() => {}} isAuthenticated={true} />);
-        const disconnectLink = <a href="#">Se déconnecter</a>;
+        const wrapper = mount(<Header onClick={() => {}} isAuthenticated={true} firstName="firstName" lastName="lastName" />);
+        const disconnectLink = <a href="#">Logout firstName lastName</a>;
         expect(wrapper.props().isAuthenticated).toEqual(true);
         expect(wrapper.containsMatchingElement(disconnectLink)).toEqual(true);
     });
 
     it('renders with connect link', () => {
         const wrapper = mount(<MemoryRouter><Header onClick={() => {}} isAuthenticated={false} /></MemoryRouter>);
-        const authenticatedLink = <Link to="/login">Se connecter</Link>;
+        const authenticatedLink = <Link to="/login">Sign in</Link>;
         const headerComponent = wrapper.find(Header);
         expect(headerComponent.props().isAuthenticated).toEqual(false);
         expect(headerComponent.containsMatchingElement(authenticatedLink)).toEqual(true);

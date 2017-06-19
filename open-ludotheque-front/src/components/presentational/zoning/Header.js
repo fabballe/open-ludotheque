@@ -10,7 +10,7 @@ import './Header.css'
 function DisplayLink(props) {
     if(props.isAuthenticated) {
         //return <LinkContainer to="/logout"><Link to="/logout">Se déconnecter</Link></LinkContainer>;
-        return <ul className="nav navbar-nav navbar-right"><li><a href="#" onClick={props.onClick}>Logout</a></li></ul>;
+        return <ul className="nav navbar-nav navbar-right"><li><a href="#" onClick={props.onClick}>Logout {props.firstName} {props.lastName}</a></li></ul>;
         //https://github.com/ReactTraining/react-router/issues/1553
     } else {
         return (
@@ -33,7 +33,7 @@ class Header extends Component {
             <div className="navbar navbar-default navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-collapse collapse">
-                        <DisplayLink isAuthenticated={this.props.isAuthenticated} onClick={this.props.onClick} />
+                        <DisplayLink isAuthenticated={this.props.isAuthenticated} firstName={this.props.firstName} lastName={this.props.lastName} onClick={this.props.onClick} />
                     </div>
                 </div>
             </div>
@@ -43,11 +43,15 @@ class Header extends Component {
 
 Header.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     onClick: PropTypes.func.isRequired
 };
 
 Header.defaultProps = {
-    isAuthenticated: false
+    isAuthenticated: false,
+    firstName: "",
+    lastName: ""
 };
 
 export default Header;
