@@ -22,6 +22,12 @@ export function signUp(user){
     });
 }
 
+/**
+ * Log un utilisateur
+ * @param login
+ * @param password
+ * @returns {*}
+ */
 export function signIn(login,password){
     return fetch(BASE_URL+"/api/authentication", {
         method: 'post',
@@ -32,5 +38,15 @@ export function signIn(login,password){
             username: login,
             password: password
         })
+    });
+}
+
+export function loadUserData(){
+    return fetch(BASE_URL+"/api/user", {
+        method: 'get',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : localStorage.getItem("openLudotheque-jwtToken")
+        }
     });
 }

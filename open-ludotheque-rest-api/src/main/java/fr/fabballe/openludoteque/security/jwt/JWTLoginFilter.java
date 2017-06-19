@@ -37,8 +37,6 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
     public JWTLoginFilter(String url, AuthenticationManager authManager, JwtUtil jwtUtil, PasswordEncoder passwordEncoder) {
         super(new AntPathRequestMatcher(url));
         setAuthenticationManager(authManager);
-        // permet d'activer les filtres CORS
-//        setContinueChainBeforeSuccessfulAuthentication(true);
         this.jwtUtil = jwtUtil;
         this.passwordEncoder = passwordEncoder;
     }
