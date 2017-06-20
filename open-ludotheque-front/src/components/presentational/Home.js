@@ -7,7 +7,7 @@ import './Home.css';
 function DisplayLink(props) {
   if(props.isAuthenticated) {
     return (<ul>
-      {this.props.collections.map(function (collection) {
+      {props.collections.map(function (collection) {
         return <li><Collection key={collection.name} /></li>
       })}
     </ul>)
@@ -26,7 +26,7 @@ class Home extends Component {
       <div>
         <div className="App-intro">
             <h1>Bienvenue dans OpenLudoteque.</h1>
-            <DisplayLink isAuthenticated={this.props.isAuthenticated} />
+            <DisplayLink isAuthenticated={this.props.isAuthenticated} collections={this.props.collections} />
         </div>
       </div>
     );

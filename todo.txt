@@ -77,14 +77,3 @@ PersistentEntityResourceAssembler
 -> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/config/SecurityConfiguration.java
 -> https://github.com/jhipster/jhipster-neo4j-app/blob/master/src/main/java/com/mycompany/myapp/security/UserDetailsService.java
 
-curl -d username=fabien.abballe@trsb.net -d password=test -L http://localhost:8080/api/authentication
-
-https://github.com/szerhusenBC/jwt-spring-security-demo
-https://auth0.com/blog/securing-spring-boot-with-jwts/
-
-http://www.svlada.com/jwt-token-authentication-with-spring-boot/
-
-https://stackoverflow.com/questions/30632200/standalone-spring-oauth2-jwt-authorization-server-cors/30638914#30638914
-http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cors.html#_filter_based_cors_support
-
-//TODO regarder l'ordre de chargement des filtres pour vérifier que CORS est en premier

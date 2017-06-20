@@ -12,7 +12,7 @@ import { ConnectedRouter } from 'react-router-redux'
 
 /* presentational pure zoning component */
 import MyHeader from './container/MyHeader.js'
-import Home from './presentational/Home.js'
+import MyHome from './container/MyHome.js'
 
 /* Forms component */
 import LoginForm from './forms/LoginForm.js'
@@ -20,7 +20,6 @@ import RegisterForm from './forms/RegisterForm.js'
 //import Navigation from './presentational/zoning/Navigation.js'
 
 import PropTypes from 'prop-types';
-import MyComic from './container/MyComic.js';
 
 
 class Root extends Component {
@@ -33,8 +32,7 @@ class Root extends Component {
                         <MyHeader />
 
                         <div className="container">
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/myComic" component={MyComic}/>
+                            <Route exact path="/" component={MyHome}/>
 
                             <Route path="/login" component={LoginForm}/>
                             <Route path="/register" component={RegisterForm}/>
