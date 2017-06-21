@@ -13,12 +13,12 @@ export function userLoggedOut() {
     return { type: USER_LOGGED_OUT}
 }
 
-export function userSignUp(email, password){
+export function userSignUp(user){
     return function (dispatch){
-        return signUp(email,password)
+        return signUp(user)
             .then(() => {
                 // une fois le compte créé nous loggons l'utilisateur
-                dispatch(userSignIn(email,password));
+                dispatch(userSignIn(user.email,user.password));
             }).catch(e => {
                 //TODO: gerer l'erreur
                 console.log(e);
@@ -26,28 +26,31 @@ export function userSignUp(email, password){
     }
 }
 
+export function userLoadData(){
+    return function (dispatch){
+        return loadUserData()
+            .then(response => response.json())
+            .then((user) => {
+            // nous arrivons à récupérer les données de l'utilisateur. Nous sommes donc authentifié
+                dispatch(userLogged(user));
+                // nous redirigons vers l'accueil
+                dispatch(push('/'));
+        }).catch(e => {
+            //TODO: gerer l'erreur
+            console.log(e);
+        });
+    }
+}
+
 export function userSignIn(email, password){
     return function (dispatch) {
-
         return signIn(email, password)
             .then((response) => {
                 const jwtToken = response.headers.get("Authorization");
-
                 localStorage.setItem("openLudotheque-jwtToken", jwtToken);
-
             }).then(() => {
-                return loadUserData();
-            }).then(response => response.json())
-            .then((user) => {
-                // l'utilisateur est loggué
-                dispatch(userLogged(user));
-
-                // nous redirigons vers l'accueil
-                dispatch(push('/'));
-            }).catch(e => {
-                console.log(e);
+                dispatch(userLoadData());
             });
-
     }
 }
 
