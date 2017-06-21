@@ -48,7 +48,6 @@ public class UserControler {
     public ResponseEntity<Resource<User>> getUser(Principal principal){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(" auth.getName()= " + principal.getName());
         String email = auth.getName();
 
         User user = this.userRepository.findByEmail(email);

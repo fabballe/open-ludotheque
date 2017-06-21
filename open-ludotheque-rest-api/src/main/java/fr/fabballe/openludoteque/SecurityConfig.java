@@ -1,5 +1,6 @@
 package fr.fabballe.openludoteque;
 
+import fr.fabballe.openludoteque.security.AccessDeniedHanlder;
 import fr.fabballe.openludoteque.security.AjaxAuthenticationFailureHandler;
 import fr.fabballe.openludoteque.security.AjaxAuthenticationSuccessHandler;
 import fr.fabballe.openludoteque.security.RESTAuthenticationEntryPoint;
@@ -48,15 +49,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private RESTAuthenticationEntryPoint authenticationEntryPoint;
 
     @Autowired
+    private AccessDeniedHanlder accessDeniedHanlder;
+
+    @Autowired
     private JwtUtil jwtUtil;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http //
                 .formLogin() //
-                .loginProcessingUrl("/api/authentication") //
-                .successHandler(ajaxAuthenticationSuccessHandler) //
-                .failureHandler(ajaxAuthenticationFailureHandler) //
+                    .loginProcessingUrl("/api/authentication") //
+                    .successHandler(ajaxAuthenticationSuccessHandler) //
+                    .failureHandler(ajaxAuthenticationFailureHandler) //
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and()
@@ -75,7 +79,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JWTLoginFilter("/api/authentication", authenticationManager(), jwtUtil, passwordEncoder()), UsernamePasswordAuthenticationFilter.class)
                         // And filter other requests to check the presence of JWT in header
-                .addFilterBefore(new JWTAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JWTAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling().accessDeniedHandler(accessDeniedHanlder);
 
         // disable page caching
         http.headers().cacheControl();
