@@ -47,9 +47,7 @@ public class UserControler {
     @GetMapping(value = "/user", produces = "application/hal+json")
     public ResponseEntity<Resource<User>> getUser(Principal principal){
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
-
+        String email = principal.getName();
         User user = this.userRepository.findByEmail(email);
         Resource<User> result = new Resource(user);
 

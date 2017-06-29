@@ -32,8 +32,6 @@ public class Neo4JUserDetailsService implements UserDetailsService {
 
         String lowerCaseEmail = email.toLowerCase();
 
-        System.out.println("lowerCaseEmail = " + lowerCaseEmail);
-
         Optional<User> userFromDatabase = Optional.ofNullable(userRepository.findByEmail(lowerCaseEmail));
 
         return userFromDatabase

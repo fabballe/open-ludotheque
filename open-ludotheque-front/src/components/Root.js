@@ -3,26 +3,25 @@
  */
 
 import React, { Component } from 'react';
-
 import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
 
 /* React-routeur-redux */
-import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
 /* presentational pure zoning component */
 import MyHeader from './container/MyHeader.js'
-import MyHome from './container/MyHome.js'
+import AllRoute from '../route/AllRoute.js'
 
-/* Forms component */
-import LoginForm from './forms/LoginForm.js'
-import RegisterForm from './forms/RegisterForm.js'
-//import Navigation from './presentational/zoning/Navigation.js'
-
-import PropTypes from 'prop-types';
-
+import {userLoadData} from '../actions/User.js'
 
 class Root extends Component {
+
+    componentDidMount(){
+        this.props.store.dispatch(userLoadData());
+    }
 
     render() {
         return (
@@ -32,10 +31,7 @@ class Root extends Component {
                         <MyHeader />
 
                         <div className="container">
-                            <Route exact path="/" component={MyHome}/>
-
-                            <Route path="/login" component={LoginForm}/>
-                            <Route path="/register" component={RegisterForm}/>
+                            <AllRoute />
                         </div>
                     </div>
                 </ConnectedRouter>

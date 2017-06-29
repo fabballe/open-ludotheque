@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form';
+import { push } from 'react-router-redux'
 
 import {userSignIn} from '../../actions/User.js'
 import {required, emailRegexp} from './Validation.js';
@@ -25,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: (values) => {
             dispatch(userSignIn(values.email, values.password));
+
+            // nous redirigons vers l'accueil
+            dispatch(push('/'));
         }
     }
 };

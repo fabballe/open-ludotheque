@@ -32,9 +32,7 @@ export function userLoadData(){
             .then(response => response.json())
             .then((user) => {
             // nous arrivons à récupérer les données de l'utilisateur. Nous sommes donc authentifié
-                dispatch(userLogged(user));
-                // nous redirigons vers l'accueil
-                dispatch(push('/'));
+            dispatch(userLogged(user));
         }).catch(e => {
             //TODO: gerer l'erreur
             console.log(e);

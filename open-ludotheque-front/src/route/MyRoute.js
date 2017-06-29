@@ -2,16 +2,15 @@
  * Created by fabballe on 12/05/17.
  */
 import { connect } from 'react-redux'
-import Collection from '../presentational/Collection.js'
+
+import AllRoute from './AllRoute.js'
 
 const mapStateToProps = (state) => {
     return {
-        products : state.comics.products
+        isAuthenticated: state.user.isAuthenticated
     }
 };
 
-const MyComic = connect(
+export default connect(
     mapStateToProps
-)(Collection);
-
-export default MyComic;
+)(AllRoute);

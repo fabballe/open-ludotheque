@@ -11,6 +11,7 @@ import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 
 import Root from './components/Root'
+import {userLoadData} from './actions/User.js';
 
 // CSS
 import './vendor/css/bootstrap.min.css';
@@ -32,8 +33,8 @@ const store = createStore(
     ))
 );
 
-
-//store.dispatch(push('/'));
+// we try to load user data
+store.dispatch(userLoadData());
 
 ReactDOM.render(
     <Root store={store} history={history} />,

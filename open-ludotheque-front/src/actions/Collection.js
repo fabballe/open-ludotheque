@@ -11,6 +11,7 @@ export function collectionLoaded(json) {
 
 export function fetchCollection() {
     return function (dispatch) {
+        console.log("fetchCollection");
         return loadMyCollection()
             .then((response) => response.toJSON())
             .then((json) => {

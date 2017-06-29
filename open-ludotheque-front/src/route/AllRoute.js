@@ -1,0 +1,33 @@
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+
+import { Route, Redirect } from 'react-router'
+
+import PrivateRoute from './PrivateRoute.js'
+
+import Home from '../components/presentational/Home.js'
+import LoginForm from '../components/forms/LoginForm.js'
+import RegisterForm from '../components/forms/RegisterForm.js'
+import MyCollectionList from '../components/container/MyCollectionList.js';
+
+// TODO: gerer les routes privés qd react-router-redux ne sera plsu en alpha */
+class AllRoute extends Component {
+    render(){
+        return (<div>
+            <Route path="/myCollectionList" component={MyCollectionList} />
+
+            <Route path="/login" component={LoginForm} />
+            <Route path="/register" component={RegisterForm}/>
+            <Route exact path="/" component={Home}/>
+        </div>);
+    };
+};
+
+//AllRoute.propTypes = {
+//    isAuthenticated: PropTypes.bool.isRequired
+//};
+
+export default AllRoute;

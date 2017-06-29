@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Comic from './Comic';
+//import PropTypes from 'prop-types';
+//import Comic from './../Comic';
 import './Collection.css';
 
 class Collection extends Component {
