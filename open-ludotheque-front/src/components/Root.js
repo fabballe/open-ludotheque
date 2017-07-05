@@ -41,11 +41,13 @@ class Root extends Component {
                     <MuiThemeProvider theme={theme}>
                         <div>
                             <MyHeader />
-                            <Grid container gutter={24}>
-                                <Grid item xs={12}>
-                                    <AllRoute />
+                            <div>
+                                <Grid container gutter={16}>
+                                    <Grid item xs={12}>
+                                        <AllRoute />
+                                    </Grid>
                                 </Grid>
-                            </Grid>
+                            </div>
                         </div>
                     </MuiThemeProvider>
                 </ConnectedRouter>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-
 import Drawer from 'material-ui/Drawer';
-
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 
 import IconButton from 'material-ui/IconButton';
@@ -18,25 +17,18 @@ import MailIcon from 'material-ui-icons/Mail';
 import DeleteIcon from 'material-ui-icons/Delete';
 import ReportIcon from 'material-ui-icons/Report';
 
-const styleSheet = createStyleSheet('UndockedDrawer', {
-    list: {
-        width: 250,
-        flex: 'initial'
-    }
-});
+import './Navigation.css'
 
 class Navigation extends Component {
 
     render() {
-        const classes = this.props.classes;
-
-        const mailFolderListItems = (
-            <div>
+        const collectionListItems = (
+            <div className="Navigation">
                 <ListItem button>
                     <ListItemIcon>
                         <InboxIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Inbox" />
+                    <ListItemText primary= {<Link to="/myCollectionList">My Collection</Link>} />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
@@ -84,15 +76,16 @@ class Navigation extends Component {
 
         const sideList = (
             <div>
-                <List className={classes.list} disablePadding>
-                    {mailFolderListItems}
-                </List>
-                <Divider />
-                <List className={classes.list} disablePadding>
-                    {otherMailFolderListItems}
+                <List disablePadding>
+                    {collectionListItems}
                 </List>
             </div>
         );
+
+                //<Divider />
+                //<List className={classes.list} disablePadding>
+                //    {otherMailFolderListItems}
+                //</List>
 
         return (
             <div>
@@ -113,7 +106,6 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-    classes: PropTypes.object.isRequired,
     openMenu : PropTypes.bool.isRequired,
     displayMenu: PropTypes.func.isRequired,
     closeMenu: PropTypes.func.isRequired
@@ -123,5 +115,4 @@ Navigation.defaultProps = {
     openMenu: false
 };
 
-export default withStyles(styleSheet)(Navigation);
-
+export default Navigation;
