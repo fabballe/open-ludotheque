@@ -14,8 +14,15 @@ import Root from './components/Root'
 import {userLoadData} from './actions/User.js';
 
 // CSS
-import './vendor/css/bootstrap.min.css';
-import './index.css';
+//import './vendor/css/bootstrap.min.css';
+//import './index.css';
+
+// Material UI
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();

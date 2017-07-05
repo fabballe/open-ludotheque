@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
-import { withRouter } from 'react-router'
-import { connect } from 'react-redux'
+import { Route} from 'react-router'
 
-import { Route, Redirect } from 'react-router'
-
-import PrivateRoute from './PrivateRoute.js'
+//import PrivateRoute from './PrivateRoute.js'
 
 import Home from '../components/presentational/Home.js'
 import LoginForm from '../components/forms/LoginForm.js'
