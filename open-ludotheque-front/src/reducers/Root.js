@@ -11,6 +11,7 @@ import {ADD_COMIC, RECEIVE_COMIC} from '../actions/Comic.js'
 
 import {userReducer} from './User.js';
 import {navigationReducer} from './Navigation.js';
+import {modalReducer} from './Modal.js';
 
 //const initialState = {
 //    products: []
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
     //comics,
     user: userReducer,
     navigation: navigationReducer,
+    modal: modalReducer,
     routing: routerReducer,
     form: formReducer
 });

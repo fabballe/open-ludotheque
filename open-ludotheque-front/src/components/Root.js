@@ -11,7 +11,7 @@ import { ConnectedRouter } from 'react-router-redux'
 
 /* UI */
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
+//import createPalette from 'material-ui/styles/palette';
 import Grid from 'material-ui/Grid';
 
 /* presentational pure zoning component */
@@ -22,9 +22,24 @@ import AllRoute from '../route/AllRoute.js'
 import {userLoadData} from '../actions/User.js'
 
 const theme = createMuiTheme({
-    palette: createPalette({
-        type: 'dark' // Switching the dark mode on is a single property value change.
-    })
+    //overrides: {
+        //MuiButton: {
+        //    // Name of the styleSheet
+        //    root: {
+        //        // Name of the rule
+        //        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        //        borderRadius: 3,
+        //        border: 0,
+        //        color: 'black',
+        //        height: 48,
+        //        padding: '0 30px',
+        //        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+        //    },
+        //}
+    //}
+    //palette: createPalette({
+    //    type: 'dark' // Switching the dark mode on is a single property value change.
+    //})
 });
 
 class Root extends Component {

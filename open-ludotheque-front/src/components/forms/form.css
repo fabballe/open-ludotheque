@@ -1,0 +1,17 @@
+.CenterForm {
+    margin: 10px auto;
+    width: 50%;
+}
+
+.CenterForm > div > div {
+    width: 100%;
+}
+
+.CenterForm div.centerWrapper {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.CenterForm div.centerWrapper button + button {
+    margin-left: 10px;
+}

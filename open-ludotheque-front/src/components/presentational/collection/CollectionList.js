@@ -2,24 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Collection from './Collection.js';
+import AddButton from '../button/AddButton.js';
+
 import './CollectionList.css';
 
 class CollectionList extends Component {
 
     componentDidMount() {
-        console.log("composant dit mout");
         // we load initial data
         this.props.onLoad();
     }
 
     render() {
         return (
-            <ul>
-                <li>coucou </li>
-                {this.props.collections.map((collection) => {
-                    return <li><Collection key={collection.name}/></li>
-                })}
-            </ul>
+            <div>
+                <ul>
+                    {this.props.collections.map((collection) => {
+                        return <li><Collection key={collection.name}/></li>
+                    })}
+                </ul>
+
+                <AddButton linkToForm="/addCollection" />
+
+            </div>
         );
     }
 }
